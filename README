@@ -1,0 +1,28 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1931
+
+1) used as vim command, format :D [v] [version #]
+   :D h    
+      -- diff between opened file and lastest svn version, horizontal split
+   :D      
+      -- diff between opened file and lastest svn version, vertical split
+   :D h <version #>  example  :D 1.2
+      -- diff between opened file and svn version #, horizontal split
+   :D <version #>  example  :D v 1.2
+      -- diff between opened file and svn version #, vertical split
+2) map to key 
+   can create key mapping by adding the following lines in ~/.vimrc, example
+   a. map <F8> <Plug>D
+        -- press F8 in vim, show diff to svn last version, horizontal split
+   b. map <F7> <Plug>Dh
+        -- press F7 in vim, show diff to svn last version, vertical split
+3) return from diff mode to normal mode
+   :set nodiff
+
+example:
+  a) open a file in vim
+  b) use vim command line, :D <enter> to see two windows with diffs
+  c) :close to close tmp window
+  d) :set nodiff to expand the compressed view, or press a on '+' sign to expand 
+
+version updates:
+0.2 -- merged Tom Ziomek's fix
