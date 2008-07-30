@@ -41,15 +41,17 @@ let loaded_svndiff = 1
 
 noremap <unique> <script> <Plug>D :call <SID>Svndiff()<CR>
 noremap <unique> <script> <plug>Dh :call <SID>Svndiff("h")<CR>
-com! -bar -nargs=? D :call s:Svndiff(<f-args>)
+com! -bar -nargs=* D :call s:Svndiff(<f-args>)
 
 " to return to the previous buffer
 inoremap <silent> <F4> <C-O>:close<CR>
 
 function! s:Svndiff(...)
-    if a:0 > 1
-        let rev = a:2
-    else
+    if a:0 == 1 && a:1 != "h" && a:1 != "v"
+        let rev = " -r".a:1
+    elseif a:0 == 2
+        let rev = " -r".a:2 
+    else 
         let rev = ''
     endif
 
