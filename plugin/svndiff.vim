@@ -75,9 +75,9 @@ function! s:Svndiff(...)
     endif
 
     if a:0 > 0 && a:1 == "h"
-        exe "diffsplit" . tmpfile
+        exe "diffsplit " . tmpfile
     else
-        exe "vert diffsplit" . tmpfile
+        exe "vert diffsplit " . tmpfile
     endif  
 
     exe "set filetype=" . ftype
